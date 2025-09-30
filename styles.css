@@ -1,0 +1,492 @@
+/* ============================================================================
+   VARIABLES CSS ET THÈMES
+   ============================================================================ */
+
+/* Thème clair (par défaut) */
+:root {
+  --bg: #f7f7fb;                /* Arrière-plan principal */
+  --text: #1a1b22;              /* Texte principal */
+  --muted: #31323e;             /* Texte secondaire */
+  --brand: #60519b;             /* Couleur de marque (violet) */
+  --accent: #60519b;            /* Couleur d'accent */
+  --surface: #ffffff;           /* Surface des cartes/éléments */
+  --surface-2: #f1f2f6;         /* Surface secondaire */
+  --ring: #60519b22;            /* Ombre des focus (avec transparence) */
+  --radius: 18px;               /* Rayon des bordures arrondies */
+  --shadow: 0 18px 40px rgba(0,0,0,.12); /* Ombre portée */
+}
+
+/* Thème sombre */
+:root[data-theme='night'] {
+  --bg: #1e202c;
+  --text: #e9eaf3;
+  --muted: #bfc0d1;
+  --surface: #31323e;
+  --surface-2: #262733;
+  --ring: #60519b44;
+  --shadow: 0 20px 40px rgba(0,0,0,.35);
+}
+
+/* ============================================================================
+   RÉINITIALISATION ET STYLES DE BASE
+   ============================================================================ */
+
+* {
+  box-sizing: border-box;       /* Inclut padding et border dans les dimensions */
+}
+
+html {
+  scroll-behavior: smooth;      /* Défilement fluide pour les ancres */
+}
+
+body {
+  margin: 0;
+  font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+img {
+  display: block;
+  max-width: 100%;              /* Images responsives */
+}
+
+/* ============================================================================
+   LAYOUT ET CONTENEURS
+   ============================================================================ */
+
+.container {
+  width: min(1100px, 95%);      /* Largeur max de 1100px ou 95% de l'écran */
+  margin-inline: auto;          /* Centrage horizontal */
+}
+
+/* ============================================================================
+   LIENS ET INTERACTIVITÉ
+   ============================================================================ */
+
+a {
+  color: var(--brand);
+  text-decoration: none;
+}
+
+/* ============================================================================
+   EN-TÊTE ET NAVIGATION
+   ============================================================================ */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in oklab, var(--surface) 75%, transparent); /* Fond semi-transparent */
+  backdrop-filter: blur(8px);   /* Effet de flou derrière l'en-tête */
+  border-bottom: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
+  transition: .3s;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+}
+
+.brand {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: var(--text);
+}
+
+.logo {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  box-shadow: 0 0 0 3px #60519b22; /* Bordure colorée subtile */
+}
+
+/* Style de base pour tous les liens du menu */
+.menu a {
+  padding: 8px 10px;
+  border-radius: 10px;
+  color: var(--text);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Effet de fond coloré pour la page active */
+.menu a.active {
+  background: linear-gradient(135deg, var(--brand), #7a6ad6);
+  color: #fff !important;
+  font-weight: 600;
+}
+
+/* Option : Soulignement animé pour la page active */
+.menu a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 10px;
+  right: 10px;
+  height: 2px;
+  background: linear-gradient(135deg, var(--brand), #7a6ad6);
+  border-radius: 2px;
+}
+
+/* Supprime le style CTA permanent du bouton Contact */
+.menu a.cta {
+  background: none;
+  color: var(--text);
+  box-shadow: none;
+  font-weight: normal;
+}
+
+/* Réapplique le style seulement quand Contact est actif */
+.menu a.cta.active {
+  background: linear-gradient(135deg, var(--brand), #7a6ad6);
+  color: #fff;
+  box-shadow: 0 8px 18px #60519b44;
+}
+
+/* ============================================================================
+   BOUTONS ET APPELS À L'ACTION
+   ============================================================================ */
+
+.cta {
+  background: linear-gradient(135deg, var(--brand), #7a6ad6);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-weight: 800;
+  box-shadow: 0 8px 18px #60519b44;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon-btn {
+  background: var(--surface-2);
+  border: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
+  color: var(--text);
+  padding: 8px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.burger {
+  display: none;                /* Caché par défaut (visible sur mobile) */
+  background: none;
+  border: 0;
+  color: var(--text);
+  font-size: 22px;
+}
+
+/* ============================================================================
+   SECTION HERO (BANNIÈRE PRINCIPALE)
+   ============================================================================ */
+
+.hero {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 60vh;
+  background-image: 
+    linear-gradient(180deg, #60519b22, transparent), 
+    url('assets/hero.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.hero .overlay {
+  position: absolute;
+  inset: 0;                     /* Couvre toute la section hero */
+  background: linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.6));
+}
+
+.hero-inner {
+  position: relative;
+  padding: 40px 0;
+  text-align: center;
+  color: #fff;
+}
+
+/* ============================================================================
+   TYPOGRAPHIE ET TITRES
+   ============================================================================ */
+
+.title {
+  font-size: clamp(34px, 5vw, 56px); /* Taille responsive entre 34px et 56px */
+  line-height: 1.05;
+  margin: 0 0 8px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: .6s;
+}
+
+.subtitle {
+  font-size: clamp(16px, 1.8vw, 19px);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: .6s .15s;         /* Délai de 0.15s pour l'animation */
+}
+
+/* ============================================================================
+   BADGES ET ÉLÉMENTS D'INFORMATION
+   ============================================================================ */
+
+.badges {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 16px 0;
+}
+
+.badge {
+  padding: 8px 12px;
+  border: 1px solid #bfc0d155;
+  border-radius: 999px;         /* Forme parfaitement ronde */
+  background: color-mix(in oklab, var(--surface) 20%, transparent);
+  color: #fff;
+}
+
+/* ============================================================================
+   SECTIONS PRINCIPALES
+   ============================================================================ */
+
+main.container, 
+section.container {
+  padding: 36px 0;
+}
+
+.page-title {
+  font-size: 30px;
+  margin: 22px 0;
+}
+
+/* ============================================================================
+   SYSTÈME DE GRILLE
+   ============================================================================ */
+
+.grid {
+  display: grid;
+  gap: 16px;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* ============================================================================
+   CARTES ET COMPOSANTS
+   ============================================================================ */
+
+.card {
+  background: var(--surface);
+  border: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: .6s;
+}
+
+.card h3 {
+  margin: 0 0 6px;
+}
+
+/* ============================================================================
+   PROFILS (PAGE ÉQUIPE)
+   ============================================================================ */
+
+.profile {
+  text-align: center;
+}
+
+.profile img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;           /* Image circulaire */
+  object-fit: cover;            /* Maintient les proportions */
+  margin: 0 auto 10px;
+  box-shadow: 0 6px 20px #60519b33;
+}
+
+/* ============================================================================
+   INDICATEURS DE PERFORMANCE (KPI)
+   ============================================================================ */
+
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.kpi {
+  background: var(--surface);
+  border: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
+  border-radius: var(--radius);
+  padding: 18px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: .6s;
+}
+
+.kpi b {
+  display: block;
+  font-size: 28px;
+  color: var(--brand);
+}
+
+/* ============================================================================
+   SÉPARATEURS
+   ============================================================================ */
+
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, color-mix(in oklab, var(--text) 25%, transparent), transparent);
+  margin: 24px 0;
+}
+
+/* ============================================================================
+   FORMULAIRES ET CONTACT
+   ============================================================================ */
+
+.contact-wrap {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 18px;
+}
+
+input, select, textarea {
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid color-mix(in oklab, var(--text) 12%, transparent);
+  background: var(--surface-2);
+  color: var(--text);
+  outline: 0;
+}
+
+input:focus, 
+select:focus, 
+textarea:focus {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 4px var(--ring); /* Effet de halo au focus */
+}
+
+button[type=submit] {
+  cursor: pointer;
+}
+
+.chk {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: var(--text);
+}
+
+/* ============================================================================
+   BARRE LATÉRALE ET RÉSEAUX SOCIAUX
+   ============================================================================ */
+
+.side .social {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 6px 0;
+}
+
+.side .social img {
+  width: 20px;
+  height: 20px;
+}
+
+/* ============================================================================
+   PIED DE PAGE
+   ============================================================================ */
+
+footer {
+  border-top: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
+  padding: 22px 0;
+  color: var(--muted);
+}
+
+.ftr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.socials .social img {
+  width: 18px;
+  height: 18px;
+  opacity: .9;
+  transition: .2s;
+}
+
+.socials .social img:hover {
+  opacity: 1;
+  transform: translateY(-2px);  /* Effet de levée au survol */
+}
+
+/* ============================================================================
+   ANIMATIONS ET TRANSITIONS
+   ============================================================================ */
+
+.reveal.show,
+.card.show,
+.kpi.show,
+.profile.show {
+  opacity: 1;
+  transform: none;              /* Annule la transformation initiale */
+}
+
+/* ============================================================================
+   DESIGN RESPONSIVE (MOBILE)
+   ============================================================================ */
+
+@media (max-width: 900px) {
+  .grid-3,
+  .grid-2 {
+    grid-template-columns: 1fr; /* Passe en colonne unique */
+  }
+  
+  .kpis {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .menu {
+    display: none;
+  }
+  
+  .menu.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 56px;
+    right: 2.5%;
+    background: var(--surface);
+    border: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
+    padding: 12px;
+    border-radius: 12px;
+  }
+  
+  .burger {
+    display: inline-block;      /* Affiche le menu burger */
+  }
+  
+  .contact-wrap {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <!-- Définition des métadonnées et configuration de base -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clinique‑École — Santé, Formations & Auto-école</title>
+  <meta name="color-scheme" content="light dark">
+  
+  <!-- Favicon et feuilles de style -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+<!-- En-tête du site avec navigation -->
+<header id="header">
+  <div class="container nav">
+    <a class="brand" href="index.html">
+      <img src="assets/clinique_ecole.jpg" alt="Logo" class="logo"/>
+      <b>Clinique‑École</b>
+    </a>
+    
+    <nav class="menu" id="menu">
+      <a href="index.html">Accueil</a> <!-- Page courante -->
+      <a href="clinique_ecole.html">Clinique-École</a>
+      <a href="formations_pro.html">Formations Pro</a>
+      <a href="auto_ecole.html">Auto-École</a>
+      <a href="prepa_scolaire.html">Prépa Scolaire</a>
+      <a href="equipe.html">Équipe</a>
+      <a href="contact.html" class="cta">Contact</a>
+    </nav>
+    
+    <div class="actions">
+      <button id="themeToggle" class="icon-btn" aria-label="Basculer mode nuit">🌙</button>
+      <button class="burger" aria-label="Menu" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- Section hero - contenu principal d'accroche -->
+<section class="hero">
+  <div class="overlay"></div>
+  <div class="container hero-inner">
+    <h1 class="title reveal">Votre santé, votre avenir, <span class="accent">votre réussite</span></h1>
+    <p class="subtitle reveal">Un centre médical moderne et un espace de formation polyvalent à Libreville.</p>
+    
+    <!-- Badges de valorisation (maintenant des liens) -->
+    <div class="badges">
+      <a href="clinique_ecole.html" class="badge">🏥 Clinique-École</a>
+      <a href="formations_pro.html" class="badge">📚 Formations Pro</a>
+      <a href="auto_ecole.html" class="badge">🚗 Auto-École</a>
+      <a href="prepa_scolaire.html" class="badge">🎓 Prépa Scolaire</a>
+    </div>
+    
+    <!-- Call-to-action principal (redirige vers la section domaines) -->
+    <a href="#domaines-formation" class="cta magnetic">Découvrir toutes nos formations</a>
+  </div>
+</section>
+
+<!-- Section des indicateurs clés (KPIs) -->
+<section class="container" style="padding-top:0">
+  <div class="kpis">
+    <div class="kpi"><b data-target="500">0</b><span>Étudiants formés</span></div>
+    <div class="kpi"><b data-target="200">0</b><span>Stages garantis</span></div>
+    <div class="kpi"><b data-target="25">0</b><span>Formateurs experts</span></div>
+    <div class="kpi"><b data-target="15">0</b><span>Parcours certifiants</span></div>
+  </div>
+  <div class="divider"></div>
+</section>
+
+<!-- Section des 4 pôles principaux (avec ID pour l'ancre) -->
+<section id="domaines-formation" class="container">
+  <h2 class="page-title" style="text-align: center; margin-bottom: 40px;">Nos domaines de formation</h2>
+  <div class="grid grid-4">
+    <!-- Pôle Santé -->
+    <article class="card reveal">
+      <div style="font-size: 2.5rem; margin-bottom: 15px;">🏥</div>
+      <h3>Clinique-École Santé</h3>
+      <p>Soins Infirmiers, Médecine Générale, Kinésithérapie, Sage-Femme, Secrétariat Médical et toutes les spécialités médicales.</p>
+      <a href="clinique_ecole.html" class="btn-small" style="display: inline-block; margin-top: 10px; color: var(--brand); font-weight: 600;">Voir les formations santé</a>
+    </article>
+    
+    <!-- Pôle Formations Professionnelles -->
+    <article class="card reveal">
+      <div style="font-size: 2.5rem; margin-bottom: 15px;">📚</div>
+      <h3>Formations Professionnelles</h3>
+      <p>Comptabilité, Secrétariat, QHSE et bien d'autres filières professionnelles pour votre insertion rapide.</p>
+      <a href="formations_pro.html" class="btn-small" style="display: inline-block; margin-top: 10px; color: var(--brand); font-weight: 600;">Voir les formations pro</a>
+    </article>
+    
+    <!-- Pôle Auto-école (séparé) -->
+    <article class="card reveal">
+      <div style="font-size: 2.5rem; margin-bottom: 15px;">🚗</div>
+      <h3>Auto-École</h3>
+      <p>Permis de conduire (A, B, C) avec moniteurs expérimentés et véhicules modernes. Taux de réussite de 85%.</p>
+      <a href="auto_ecole.html" class="btn-small" style="display: inline-block; margin-top: 10px; color: var(--brand); font-weight: 600;">Voir l'auto-école</a>
+    </article>
+    
+    <!-- Pôle Prépa Scolaire (séparé) -->
+    <article class="card reveal">
+      <div style="font-size: 2.5rem; margin-bottom: 15px;">🎓</div>
+      <h3>Prépa Scolaire</h3>
+      <p>Préparation intensive au BAC et BEPC avec encadrement personnalisé et méthodologie éprouvée.</p>
+      <a href="prepa_scolaire.html" class="btn-small" style="display: inline-block; margin-top: 10px; color: var(--brand); font-weight: 600;">Voir la prépa scolaire</a>
+    </article>
+  </div>
+</section>
+
+<!-- Section des avantages/points forts -->
+<section class="container">
+  <h2 class="page-title" style="text-align: center; margin-bottom: 40px;">Pourquoi nous choisir ?</h2>
+  <div class="grid grid-3">
+    <article class="card reveal">
+      <h3>🏛️ Campus moderne</h3>
+      <p>Infrastructures neuves et plateaux techniques pour l'apprentissage pratique.</p>
+    </article>
+    <article class="card reveal">
+      <h3>👨‍🏫 Encadrement expert</h3>
+      <p>Professionnels expérimentés et pédagogie active pour votre réussite.</p>
+    </article>
+    <article class="card reveal">
+      <h3>💼 Insertion professionnelle</h3>
+      <p>Réseau de partenaires et accompagnement vers l'emploi.</p>
+    </article>
+  </div>
+</section>
+
+<!-- Pied de page -->
+<footer>
+  <div class="container ftr">
+    <span>© 2025 Clinique‑École - Santé, Formations & Auto-école</span>
+    
+    <!-- Liens vers les réseaux sociaux -->
+    <div class="socials">
+      <a href="#" aria-label="WhatsApp" class="social"><img src="assets/wa.svg" alt="WhatsApp"/></a>
+      <a href="https://www.facebook.com/profile.php?id=61581114310350" aria-label="Facebook" class="social"><img src="assets/fb.svg" alt="Facebook"/></a>
+      <a href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=zguz4ww" aria-label="Instagram" class="social"><img src="assets/insta.svg" alt="Instagram"/></a>
+      <a href="https://vm.tiktok.com/ZMHWVtUA2SLTJ-0XsiT/" aria-label="TikTok" class="social"><img src="assets/tiktok.svg" alt="TikTok"/></a>
+      <a href="#" aria-label="YouTube" class="social"><img src="assets/yt.svg" alt="YouTube"/></a>
+    </div>
+  </div>
+</footer>
+
+<!-- Script JavaScript -->
+<script src="script.js"></script>
+</body>
+</html>

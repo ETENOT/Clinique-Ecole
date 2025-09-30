@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <!-- Métadonnées essentielles pour le bon fonctionnement et le référencement -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Programme — Clinique‑École Santé</title>
+  <!-- Déclaration du support des thèmes clair/sombre -->
+  <meta name="color-scheme" content="light dark">
+  
+  <!-- Favicon et feuille de style principale -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+<!-- En-tête identique à la page d'accueil pour la cohérence navigationnelle -->
+<header id="header">
+  <div class="container nav">
+    <a class="brand" href="index.html">
+      <img src="assets/clinique_ecole.jpg" alt="Logo" class="logo"/>
+      <b>Clinique‑École</b>
+    </a>
+    
+    <nav class="menu" id="menu">
+	  <a href="index.html">Accueil</a>
+      <a href="clinique_ecole.html">Clinique-École</a>
+	  <a href="formations_pro.html">Formations Pro</a>  <!-- Page courante -->
+      <a href="auto_ecole.html">Auto-École</a>
+      <a href="prepa_scolaire.html">Prépa Scolaire</a>
+      <a href="equipe.html">Équipe</a>
+      <a href="contact.html" class="cta">Contact</a>
+    </nav>
+    
+    <div class="actions">
+      <button id="themeToggle" class="icon-btn" aria-label="Basculer mode nuit">🌙</button>
+      <button class="burger" aria-label="Menu" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- Contenu principal de la page Programme -->
+<main class="container">
+  <!-- Titre principal de la page -->
+  <h1 class="page-title">Programme pédagogique</h1>
+  
+  <!-- Grille des modules de formation -->
+  <div class="grid grid-3">
+    <!-- Module 1 : Pharmacologie -->
+    <article class="card reveal">
+      <h3>Notions de pharmacologie de base</h3>
+      <p>Classes, posologie, indications, effets indésirables.</p>
+    </article>
+    
+    <!-- Module 2 : Gestion des stocks -->
+    <article class="card reveal">
+      <h3>Gestion de stock & rangement</h3>
+      <p>FEFO/PEPS, inventaires, traçabilité, sécurité.</p>
+    </article>
+    
+    <!-- Module 3 : Accueil patient -->
+    <article class="card reveal">
+      <h3>Accueil & orientation des patients</h3>
+      <p>Communication, confidentialité, parcours de soins.</p>
+    </article>
+    
+    <!-- Module 4 : Délivrance des médicaments -->
+    <article class="card reveal">
+      <h3>Délivrance encadrée des médicaments</h3>
+      <p>Lecture d'ordonnance, contrôles, conseils.</p>
+    </article>
+    
+    <!-- Module 5 : Aspects légaux et éthiques -->
+    <article class="card reveal">
+      <h3>Éthique & réglementation</h3>
+      <p>Cadre légal, responsabilité, qualité et sécurité.</p>
+    </article>
+    
+    <!-- Module 6 : Outils informatiques -->
+    <article class="card reveal">
+      <h3>Informatique appliquée</h3>
+      <p>Logiciels de gestion de pharmacie, dossiers, facturation.</p>
+    </article>
+  </div>
+</main>
+
+<!-- Pied de page cohérent avec le reste du site -->
+<footer>
+  <div class="container ftr">
+    <!-- Copyright -->
+    <span>© 2025 Clinique‑École</span>
+    
+    <!-- Liens vers les réseaux sociaux -->
+    <div class="socials">
+      <a href="#" aria-label="WhatsApp" class="social"><img src="assets/wa.svg" alt="WhatsApp"/></a>
+      <a href="https://www.facebook.com/profile.php?id=61581114310350" aria-label="Facebook" class="social"><img src="assets/fb.svg" alt="Facebook"/></a>
+      <a href=". https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=zguz4ww" aria-label="Instagram" class="social"><img src="assets/insta.svg" alt="Instagram"/></a>
+      <a href="https://vm.tiktok.com/ZMHWVtUA2SLTJ-0XsiT/" aria-label="TikTok" class="social"><img src="assets/tiktok.svg" alt="TikTok"/></a>
+      <a href="#" aria-label="YouTube" class="social"><img src="assets/yt.svg" alt="YouTube"/></a>
+    </div>
+  </div>
+</footer>
+
+<!-- Script JavaScript pour les interactions et animations -->
+<script src="script.js"></script>
+</body>
+</html>
