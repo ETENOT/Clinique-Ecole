@@ -4,25 +4,29 @@
 
 /* Thème clair (par défaut) */
 :root {
-  --bg: #f7f7fb;                /* Arrière-plan principal */
-  --text: #1a1b22;              /* Texte principal */
-  --muted: #31323e;             /* Texte secondaire */
-  --brand: #60519b;             /* Couleur de marque (violet) */
-  --accent: #60519b;            /* Couleur d'accent */
-  --surface: #ffffff;           /* Surface des cartes/éléments */
-  --surface-2: #f1f2f6;         /* Surface secondaire */
-  --ring: #60519b22;            /* Ombre des focus (avec transparence) */
-  --radius: 18px;               /* Rayon des bordures arrondies */
-  --shadow: 0 18px 40px rgba(0,0,0,.12); /* Ombre portée */
+  --bg: #f7f7fb;
+  --text: #1a1b22;
+  --muted: #31323e;
+  --brand: #60519b;
+  --accent: #60519b;
+  --surface: #ffffff;
+  --surface-2: #f1f2f6;
+  --card-bg: #ffffff;
+  --border: #e1e1e1;
+  --ring: #60519b22;
+  --radius: 18px;
+  --shadow: 0 18px 40px rgba(0,0,0,.12);
 }
 
 /* Thème sombre */
-:root[data-theme='night'] {
+:root[data-theme='dark'] {
   --bg: #1e202c;
   --text: #e9eaf3;
   --muted: #bfc0d1;
   --surface: #31323e;
   --surface-2: #262733;
+  --card-bg: #31323e;
+  --border: #444654;
   --ring: #60519b44;
   --shadow: 0 20px 40px rgba(0,0,0,.35);
 }
@@ -32,11 +36,11 @@
    ============================================================================ */
 
 * {
-  box-sizing: border-box;       /* Inclut padding et border dans les dimensions */
+  box-sizing: border-box;
 }
 
 html {
-  scroll-behavior: smooth;      /* Défilement fluide pour les ancres */
+  scroll-behavior: smooth;
 }
 
 body {
@@ -48,7 +52,7 @@ body {
 
 img {
   display: block;
-  max-width: 100%;              /* Images responsives */
+  max-width: 100%;
 }
 
 /* ============================================================================
@@ -56,8 +60,8 @@ img {
    ============================================================================ */
 
 .container {
-  width: min(1100px, 95%);      /* Largeur max de 1100px ou 95% de l'écran */
-  margin-inline: auto;          /* Centrage horizontal */
+  width: min(1100px, 95%);
+  margin-inline: auto;
 }
 
 /* ============================================================================
@@ -77,8 +81,8 @@ header {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: color-mix(in oklab, var(--surface) 75%, transparent); /* Fond semi-transparent */
-  backdrop-filter: blur(8px);   /* Effet de flou derrière l'en-tête */
+  background: color-mix(in oklab, var(--surface) 75%, transparent);
+  backdrop-filter: blur(8px);
   border-bottom: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
   transition: .3s;
 }
@@ -101,10 +105,14 @@ header {
   width: 34px;
   height: 34px;
   border-radius: 10px;
-  box-shadow: 0 0 0 3px #60519b22; /* Bordure colorée subtile */
+  box-shadow: 0 0 0 3px #60519b22;
 }
 
-/* Style de base pour tous les liens du menu */
+.menu {
+  display: flex;
+  gap: 8px;
+}
+
 .menu a {
   padding: 8px 10px;
   border-radius: 10px;
@@ -113,26 +121,12 @@ header {
   transition: all 0.3s ease;
 }
 
-/* Effet de fond coloré pour la page active */
 .menu a.active {
   background: linear-gradient(135deg, var(--brand), #7a6ad6);
   color: #fff !important;
   font-weight: 600;
 }
 
-/* Option : Soulignement animé pour la page active */
-.menu a.active::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 10px;
-  right: 10px;
-  height: 2px;
-  background: linear-gradient(135deg, var(--brand), #7a6ad6);
-  border-radius: 2px;
-}
-
-/* Supprime le style CTA permanent du bouton Contact */
 .menu a.cta {
   background: none;
   color: var(--text);
@@ -140,7 +134,6 @@ header {
   font-weight: normal;
 }
 
-/* Réapplique le style seulement quand Contact est actif */
 .menu a.cta.active {
   background: linear-gradient(135deg, var(--brand), #7a6ad6);
   color: #fff;
@@ -158,6 +151,14 @@ header {
   border-radius: 12px;
   font-weight: 800;
   box-shadow: 0 8px 18px #60519b44;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px #60519b66;
 }
 
 .actions {
@@ -176,11 +177,12 @@ header {
 }
 
 .burger {
-  display: none;                /* Caché par défaut (visible sur mobile) */
+  display: none;
   background: none;
   border: 0;
   color: var(--text);
   font-size: 22px;
+  cursor: pointer;
 }
 
 /* ============================================================================
@@ -194,14 +196,14 @@ header {
   min-height: 60vh;
   background-image: 
     linear-gradient(180deg, #60519b22, transparent), 
-    url('assets/hero.jpg');
+    url('assets/images/hero.jpg');
   background-size: cover;
   background-position: center;
 }
 
 .hero .overlay {
   position: absolute;
-  inset: 0;                     /* Couvre toute la section hero */
+  inset: 0;
   background: linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.6));
 }
 
@@ -217,19 +219,20 @@ header {
    ============================================================================ */
 
 .title {
-  font-size: clamp(34px, 5vw, 56px); /* Taille responsive entre 34px et 56px */
+  font-size: clamp(34px, 5vw, 56px);
   line-height: 1.05;
   margin: 0 0 8px;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: .6s;
 }
 
 .subtitle {
   font-size: clamp(16px, 1.8vw, 19px);
-  opacity: 0;
-  transform: translateY(20px);
-  transition: .6s .15s;         /* Délai de 0.15s pour l'animation */
+  margin-bottom: 20px;
+}
+
+.page-title {
+  font-size: 30px;
+  margin: 22px 0;
+  text-align: center;
 }
 
 /* ============================================================================
@@ -247,7 +250,7 @@ header {
 .badge {
   padding: 8px 12px;
   border: 1px solid #bfc0d155;
-  border-radius: 999px;         /* Forme parfaitement ronde */
+  border-radius: 999px;
   background: color-mix(in oklab, var(--surface) 20%, transparent);
   color: #fff;
 }
@@ -259,11 +262,6 @@ header {
 main.container, 
 section.container {
   padding: 36px 0;
-}
-
-.page-title {
-  font-size: 30px;
-  margin: 22px 0;
 }
 
 /* ============================================================================
@@ -283,23 +281,26 @@ section.container {
   grid-template-columns: repeat(2, 1fr);
 }
 
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
 /* ============================================================================
    CARTES ET COMPOSANTS
    ============================================================================ */
 
 .card {
-  background: var(--surface);
-  border: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
+  background: var(--card-bg);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 18px;
+  padding: 2rem;
   box-shadow: var(--shadow);
-  opacity: 0;
-  transform: translateY(20px);
-  transition: .6s;
+  transition: all 0.3s ease;
 }
 
 .card h3 {
-  margin: 0 0 6px;
+  margin: 0 0 12px;
+  color: var(--text);
 }
 
 /* ============================================================================
@@ -313,8 +314,8 @@ section.container {
 .profile img {
   width: 120px;
   height: 120px;
-  border-radius: 50%;           /* Image circulaire */
-  object-fit: cover;            /* Maintient les proportions */
+  border-radius: 50%;
+  object-fit: cover;
   margin: 0 auto 10px;
   box-shadow: 0 6px 20px #60519b33;
 }
@@ -332,13 +333,10 @@ section.container {
 
 .kpi {
   background: var(--surface);
-  border: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 18px;
   text-align: center;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: .6s;
 }
 
 .kpi b {
@@ -363,40 +361,107 @@ section.container {
 
 .contact-wrap {
   display: grid;
-  grid-template-columns: 1.1fr .9fr;
-  gap: 18px;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.form-card {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.form-section {
+  margin: 2rem 0 1rem 0;
+  color: var(--text);
+  font-size: 1.2rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 input, select, textarea {
+  width: 100%;
   padding: 12px;
-  border-radius: 12px;
-  border: 1px solid color-mix(in oklab, var(--text) 12%, transparent);
+  border: 1px solid var(--border);
+  border-radius: 8px;
   background: var(--surface-2);
   color: var(--text);
-  outline: 0;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
 }
 
 input:focus, 
 select:focus, 
 textarea:focus {
   border-color: var(--brand);
-  box-shadow: 0 0 0 4px var(--ring); /* Effet de halo au focus */
+  box-shadow: 0 0 0 3px var(--ring);
 }
 
-button[type=submit] {
-  cursor: pointer;
+textarea {
+  resize: vertical;
+  min-height: 120px;
+  font-family: inherit;
 }
 
 .chk {
   display: flex;
   gap: 8px;
   align-items: center;
-  color: var(--text);
+  margin: 1rem 0;
+  cursor: pointer;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, var(--brand), #7a6ad6);
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px #60519b66;
+}
+
+.form-note {
+  text-align: center;
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 0.9rem;
 }
 
 /* ============================================================================
-   BARRE LATÉRALE ET RÉSEAUX SOCIAUX
+   BARRE LATÉRALE ET INFORMATIONS
    ============================================================================ */
+
+.info-sidebar {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
 
 .side .social {
   display: flex;
@@ -410,12 +475,58 @@ button[type=submit] {
   height: 20px;
 }
 
+.process-steps {
+  margin: 1.5rem 0;
+}
+
+.process-step {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.step-number {
+  background: var(--brand);
+  color: white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.step-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.step-content strong {
+  margin-bottom: 0.2rem;
+}
+
+.step-content span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.contact-info {
+  margin-top: 2rem;
+}
+
+.contact-info h3 {
+  margin-bottom: 1rem;
+}
+
 /* ============================================================================
    PIED DE PAGE
    ============================================================================ */
 
 footer {
-  border-top: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
+  border-top: 1px solid var(--border);
   padding: 22px 0;
   color: var(--muted);
 }
@@ -428,6 +539,11 @@ footer {
   flex-wrap: wrap;
 }
 
+.socials {
+  display: flex;
+  gap: 12px;
+}
+
 .socials .social img {
   width: 18px;
   height: 18px;
@@ -435,21 +551,54 @@ footer {
   transition: .2s;
 }
 
-.socials .social img:hover {
+.socials .social:hover img {
   opacity: 1;
-  transform: translateY(-2px);  /* Effet de levée au survol */
+  transform: translateY(-2px);
 }
 
 /* ============================================================================
    ANIMATIONS ET TRANSITIONS
    ============================================================================ */
 
-.reveal.show,
-.card.show,
-.kpi.show,
-.profile.show {
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.reveal.revealed {
   opacity: 1;
-  transform: none;              /* Annule la transformation initiale */
+  transform: translateY(0);
+}
+
+.card, .kpi, .profile {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: .6s;
+}
+
+.card.show, .kpi.show, .profile.show {
+  opacity: 1;
+  transform: none;
+}
+
+/* Messages de statut */
+.success {
+  background: #d4edda;
+  color: #155724;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  border: 1px solid #c3e6cb;
+}
+
+.error {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  border: 1px solid #f5c6cb;
 }
 
 /* ============================================================================
@@ -458,8 +607,9 @@ footer {
 
 @media (max-width: 900px) {
   .grid-3,
-  .grid-2 {
-    grid-template-columns: 1fr; /* Passe en colonne unique */
+  .grid-2,
+  .grid-4 {
+    grid-template-columns: 1fr;
   }
   
   .kpis {
@@ -468,25 +618,48 @@ footer {
   
   .menu {
     display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 1rem;
+    flex-direction: column;
   }
   
   .menu.open {
     display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 56px;
-    right: 2.5%;
-    background: var(--surface);
-    border: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
-    padding: 12px;
-    border-radius: 12px;
   }
   
   .burger {
-    display: inline-block;      /* Affiche le menu burger */
+    display: inline-block;
   }
   
   .contact-wrap {
     grid-template-columns: 1fr;
+  }
+  
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .ftr {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .kpis {
+    grid-template-columns: 1fr;
+  }
+  
+  .container {
+    width: 92%;
+  }
+  
+  .card {
+    padding: 1.5rem;
   }
 }

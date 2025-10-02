@@ -9,28 +9,28 @@
   <meta name="color-scheme" content="light dark">
   
   <!-- Favicon et feuille de style principale -->
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
-  <link rel="stylesheet" href="styles.css"/>
+  <link rel="icon" href="../assets/icones/favicon.svg" type="image/svg+xml"/>
+  <link rel="stylesheet" href="../styles.css"/>
 </head>
 <body>
 <!-- En-tête identique aux autres pages pour la cohérence navigationnelle -->
 <header id="header">
   <div class="container nav">
     <!-- Logo et nom de l'établissement - lien de retour à l'accueil -->
-    <a class="brand" href="index.html">
-      <img src="assets/clinique_ecole.jpg" alt="Logo" class="logo"/>
+    <a class="brand" href="../index.php">
+      <img src="../assets/images/clinique_ecole.jpg" alt="Logo" class="logo"/>
       <b>Clinique‑École</b>
     </a>
     
     <!-- Navigation principale avec indication de la page active -->
     <nav class="menu" id="menu">
-      <a href="index.html">Accueil</a>
-      <a href="clinique_ecole.html">Clinique-École</a>
-      <a href="formations_pro.html">Formations Pro</a>
-	  <a href="auto_ecole.html">Auto-école</a>
-      <a href="prepa_scolaire.html">Prépa Scolaire</a>
-      <a href="equipe.html">Équipe</a> <!-- Page actuelle -->
-      <a href="contact.html" class="cta">Contact</a>
+      <a href="../index.php">Accueil</a>
+      <a href="clinique_ecole.php">Clinique-École</a>
+      <a href="formations_pro.php">Formations Pro</a>
+	  <a href="auto_ecole.php">Auto-école</a>
+      <a href="prepa_scolaire.php">Prépa Scolaire</a>
+      <a href="equipe.php" class="active">Équipe</a> <!-- Page actuelle -->
+      <a href="contact.php" class="cta">Contact</a>
     </nav>
     
     <!-- Contrôles utilisateur (changement de thème et menu mobile) -->
@@ -52,14 +52,14 @@
   <div class="grid grid-3">
     <!-- Profil 1 : Dr. Alice - Ophtalmologie -->
     <div class="profile reveal">
-      <img src="assets/doctor1.jpg" alt="Dr A"/>
+      <img src="../assets/images/doctor1.jpg" alt="Dr A"/>
       <h3>Dr. Alice</h3>
       <p>Ophtalmologie</p>
     </div>
     
     <!-- Profil 2 : Dr. Bernard - Gynécologie -->
     <div class="profile reveal">
-      <img src="assets/doctor2.jpg" alt="Dr B"/>
+      <img src="../assets/images/doctor2.jpg" alt="Dr B"/>
       <h3>Dr. Bernard</h3>
       <p>Gynécologie</p>
     </div>
@@ -67,7 +67,7 @@
     <!-- Profil 3 : Dr. Claire - Infirmière-Cadre -->
     <!-- NOTE : Il manque les guillemets fermants dans l'attribut alt -->
     <div class="profile reveal">
-      <img src="assets/doctor3.jpg" alt="Dr C"/>
+      <img src="../assets/images/doctor3.jpg" alt="Dr C"/>
       <h3>Dr. Claire</h3>
       <p>Infirmière‑Cadre</p>
     </div>
@@ -82,16 +82,16 @@
     
     <!-- Liens vers les réseaux sociaux -->
     <div class="socials">
-      <a href="#" aria-label="WhatsApp" class="social"><img src="assets/wa.svg" alt="WhatsApp"/></a>
-      <a href="https://www.facebook.com/profile.php?id=61581114310350" aria-label="Facebook" class="social"><img src="assets/fb.svg" alt="Facebook"/></a>
-      <a href=". https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=zguz4ww" aria-label="Instagram" class="social"><img src="assets/insta.svg" alt="Instagram"/></a>
-      <a href="https://vm.tiktok.com/ZMHWVtUA2SLTJ-0XsiT/" aria-label="TikTok" class="social"><img src="assets/tiktok.svg" alt="TikTok"/></a>
-      <a href="#" aria-label="YouTube" class="social"><img src="assets/yt.svg" alt="YouTube"/></a>
+      <a href="#" aria-label="WhatsApp" class="social"><img src="../assets/icones/wa.svg" alt="WhatsApp"/></a>
+      <a href="https://www.facebook.com/profile.php?id=61581114310350" aria-label="Facebook" class="social"><img src="../assets/icones/fb.svg" alt="Facebook"/></a>
+      <a href=". https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=zguz4ww" aria-label="Instagram" class="social"><img src="../assets/icones/insta.svg" alt="Instagram"/></a>
+      <a href="https://vm.tiktok.com/ZMHWVtUA2SLTJ-0XsiT/" aria-label="TikTok" class="social"><img src="../assets/icones/tiktok.svg" alt="TikTok"/></a>
+      <a href="#" aria-label="YouTube" class="social"><img src="../assets/icones/yt.svg" alt="YouTube"/></a>
     </div>
   </div>
 </footer>
 
 <!-- Script JavaScript pour les interactions et animations -->
-<script src="script.js"></script>
+<script src="../script.js"></script>
 </body>
 </html>

@@ -5,24 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Auto-École — Clinique‑École</title>
   <meta name="color-scheme" content="light dark">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
-  <link rel="stylesheet" href="styles.css"/>
+  <link rel="icon" href="../assets/icones/favicon.svg" type="image/svg+xml"/>
+  <link rel="stylesheet" href="../styles.css"/>
 </head>
 <body>
 <header id="header">
   <div class="container nav">
-    <a class="brand" href="index.html">
-      <img src="assets/clinique_ecole.jpg" alt="Logo" class="logo"/>
+    <a class="brand" href="../index.php">
+      <img src="../assets/images/clinique_ecole.jpg" alt="Logo" class="logo"/>
       <b>Clinique‑École</b>
     </a>
     <nav class="menu" id="menu">
-      <a href="index.html">Accueil</a>
-      <a href="clinique_ecole.html">Clinique-École</a>
-	  <a href="formations_pro.html">Formation Pro</a>
-      <a href="auto_ecole.html">Auto-école</a>  <!-- Page courante -->
-      <a href="prepa_scolaire.html">Prépa Scolaire</a>
-      <a href="equipe.html">Équipe</a>
-      <a href="contact.html" class="cta">Contact</a>
+      <a href="../index.php">Accueil</a>
+      <a href="clinique_ecole.php">Clinique-École</a>
+	  <a href="formations_pro.php">Formation Pro</a>
+      <a href="auto_ecole.php"  class="active">Auto-école</a>  <!-- Page courante -->
+      <a href="prepa_scolaire.php">Prépa Scolaire</a>
+	  <a href="inscription.php">Inscription</a>
+      <a href="equipe.php">Équipe</a>
+      <a href="contact.php" class="cta">Contact</a>
     </nav>
     <div class="actions">
       <button id="themeToggle" class="icon-btn" aria-label="Basculer mode nuit">🌙</button>
@@ -169,7 +170,7 @@
     <p style="font-size: 1.1rem; margin-bottom: 30px;">
       Rejoignez la meilleure auto-école de Libreville et obtenez votre permis en toute confiance
     </p>
-    <a href="contact.html" class="cta magnetic">S'inscrire maintenant</a>
+    <a href="contact.php" class="cta magnetic">S'inscrire maintenant</a>
     <p style="margin-top: 20px; color: var(--muted);">
       📞 <strong>Renseignements</strong> : +241 00 00 00 00<br>
       🕒 <strong>Horaires</strong> : Lundi-Samedi • 7h30-18h
@@ -181,15 +182,15 @@
   <div class="container ftr">
     <span>© 2025 Clinique‑École - Santé, Formations & Auto-école</span>
     <div class="socials">
-      <a href="#" aria-label="WhatsApp" class="social"><img src="assets/wa.svg" alt="WhatsApp"/></a>
-     <a href="https://www.facebook.com/profile.php?id=61581114310350" aria-label="Facebook" class="social"><img src="assets/fb.svg" alt="Facebook"/></a>
-      <a href=". https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=zguz4ww" aria-label="Instagram" class="social"><img src="assets/insta.svg" alt="Instagram"/></a>
-      <a href="https://vm.tiktok.com/ZMHWVtUA2SLTJ-0XsiT/" aria-label="TikTok" class="social"><img src="assets/tiktok.svg" alt="TikTok"/></a>
-      <a href="#" aria-label="YouTube" class="social"><img src="assets/yt.svg" alt="YouTube"/></a>
+      <a href="#" aria-label="WhatsApp" class="social"><img src="../assets/icones/wa.svg" alt="WhatsApp"/></a>
+     <a href="https://www.facebook.com/profile.php?id=61581114310350" aria-label="Facebook" class="social"><img src="../assets/icones/fb.svg" alt="Facebook"/></a>
+      <a href=". https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=zguz4ww" aria-label="Instagram" class="social"><img src="../assets/icones/insta.svg" alt="Instagram"/></a>
+      <a href="https://vm.tiktok.com/ZMHWVtUA2SLTJ-0XsiT/" aria-label="TikTok" class="social"><img src="../assets/icones/tiktok.svg" alt="TikTok"/></a>
+      <a href="#" aria-label="YouTube" class="social"><img src="../assets/icones/yt.svg" alt="YouTube"/></a>
     </div>
   </div>
 </footer>
-<script src="script.js"></script>
+<script src="../script.js"></script>
 </body>
 </html>
 
